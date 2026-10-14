@@ -1,0 +1,150 @@
+.header {
+	position: sticky;
+	top: 0;
+	z-index: 50;
+	width: 100%;
+	background: rgba(250, 250, 249, 0.92);
+	backdrop-filter: blur(6px);
+	border-bottom: 1px solid var(--color-line);
+}
+
+.bar {
+	padding-top: 0.85rem;
+	padding-bottom: 0.85rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1.5rem;
+}
+
+.brand {
+	display: block;
+	flex-shrink: 0;
+	font-family: var(--font-display);
+	font-size: 1.05rem;
+}
+
+.logo {
+	height: 40px;
+	width: auto;
+}
+
+.links {
+	list-style: none;
+	display: flex;
+	align-items: center;
+	gap: 2rem;
+}
+
+.link {
+	font-size: 0.8rem;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: var(--color-ink-muted);
+	transition: color 0.15s ease;
+}
+
+.link:hover {
+	color: var(--color-accent);
+}
+
+/*
+ * Dropdown submenus (e.g. a nav item split by year). Deliberately NOT
+ * built on <details>/<summary>: browsers suppress rendering of a closed
+ * <details>'s non-summary content at a level plain CSS can't reliably
+ * override (confirmed the hard way — display:block, z-index:99999, even
+ * position:fixed made no difference). This version is a plain sibling
+ * <ul> shown via :hover/:focus-within, which also means it opens on
+ * hover for free instead of needing a click.
+ */
+.dropdownItem {
+	position: relative;
+	/* Invisible padding bridges the visual gap down to the panel so the
+	   hover target stays continuous — without it, moving the pointer from
+	   the link down to the panel crosses a dead zone and the menu closes
+	   before you get there. */
+	padding-bottom: 0.75rem;
+	margin-bottom: -0.75rem;
+}
+
+.dropdownItem:hover .link,
+.dropdownItem:focus-within .link {
+	color: var(--color-accent);
+}
+
+.dropdownPanel {
+	list-style: none;
+	position: absolute;
+	top: calc(100% + 0.75rem);
+	left: 50%;
+	transform: translateX(-50%);
+	min-width: 8rem;
+	/* Same surface as the header itself, not a contrasting block, so it
+	   reads as part of the nav rather than a separate floating element. */
+	background: var(--color-bg);
+	border: 1px solid var(--color-line);
+	border-radius: 2px;
+	padding: 0.4rem 0;
+	box-shadow: 0 14px 28px rgba(20, 17, 14, 0.14);
+	z-index: 10;
+	opacity: 0;
+	visibility: hidden;
+	pointer-events: none;
+	transition: opacity 0.12s ease;
+	/* A long list (e.g. many years of archives) scrolls in place instead
+	   of growing off-screen or getting clipped. */
+	max-height: min(60vh, 22rem);
+	overflow-y: auto;
+}
+
+.dropdownItem:hover .dropdownPanel,
+.dropdownItem:focus-within .dropdownPanel {
+	opacity: 1;
+	visibility: visible;
+	pointer-events: auto;
+}
+
+.dropdownLink {
+	display: block;
+	padding: 0.5rem 1.25rem;
+	font-size: 0.8rem;
+	letter-spacing: 0.04em;
+	color: var(--color-ink-muted);
+	white-space: nowrap;
+}
+
+.dropdownLink:hover {
+	color: var(--color-accent);
+}
+
+@media (max-width: 720px) {
+	.bar {
+		flex-wrap: wrap;
+	}
+
+	.links {
+		flex-wrap: wrap;
+		gap: 1rem 1.5rem;
+	}
+
+	/* No hover on touch — the panel is just always expanded inline under
+	   its label instead of needing a second tap. */
+	.dropdownItem {
+		padding-bottom: 0;
+		margin-bottom: 0;
+	}
+
+	.dropdownPanel {
+		position: static;
+		transform: none;
+		box-shadow: none;
+		border: none;
+		border-radius: 0;
+		background: none;
+		padding: 0.25rem 0 0 0.5rem;
+		opacity: 1;
+		visibility: visible;
+		pointer-events: auto;
+		max-height: none;
+	}
+}

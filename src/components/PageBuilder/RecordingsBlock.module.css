@@ -1,0 +1,65 @@
+.eyebrow {
+	font-size: 0.75rem;
+	font-weight: 600;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--color-accent);
+	margin-bottom: 0.75rem;
+}
+
+.heading {
+	font-size: clamp(1.6rem, 3vw, 2.2rem);
+}
+
+.group {
+	margin-top: 2.5rem;
+}
+
+.groupTitle {
+	font-size: 1.15rem;
+	margin-bottom: 1.25rem;
+}
+
+.grid {
+	display: grid;
+	/* Fixed column count (not auto-fit/auto-fill) so every card is the
+	   same size everywhere, regardless of how many recordings a given
+	   category happens to have. */
+	grid-template-columns: repeat(4, 1fr);
+	gap: 1.75rem;
+}
+
+@media (max-width: 1024px) {
+	.grid {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+@media (max-width: 680px) {
+	.grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (max-width: 420px) {
+	.grid {
+		grid-template-columns: 1fr;
+	}
+}
+
+.button {
+	display: inline-block;
+	margin-top: 2rem;
+	padding: 0.85rem 1.75rem;
+	background: var(--color-accent);
+	color: #fdf8f2;
+	font-size: 0.85rem;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+	border-radius: 2px;
+	transition: background 0.15s ease;
+}
+
+.button:hover {
+	background: var(--color-accent-dark);
+}

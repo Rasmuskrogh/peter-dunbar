@@ -1,0 +1,40 @@
+.section {
+	max-width: 640px;
+	text-align: center;
+}
+
+.eyebrow {
+	font-size: 0.75rem;
+	font-weight: 600;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--color-accent);
+	margin-bottom: 0.75rem;
+}
+
+.heading {
+	font-size: clamp(1.6rem, 3vw, 2.2rem);
+	margin-bottom: 1rem;
+}
+
+.body {
+	color: var(--color-ink-muted);
+	line-height: 1.6;
+	margin-bottom: 1.5rem;
+}
+
+.button {
+	display: inline-block;
+	padding: 0.85rem 1.75rem;
+	background: var(--color-accent);
+	color: #fdf8f2;
+	font-size: 0.85rem;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+	border-radius: 2px;
+	transition: background 0.15s ease;
+}
+
+.button:hover {
+	background: var(--color-accent-dark);
+}

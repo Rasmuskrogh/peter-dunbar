@@ -1,0 +1,120 @@
+.section {
+	text-align: center;
+}
+
+.heading {
+	font-size: clamp(1.6rem, 3vw, 2.2rem);
+	margin-bottom: 2rem;
+}
+
+.grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 2rem 1.5rem;
+}
+
+@media (max-width: 900px) {
+	.grid {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+@media (max-width: 620px) {
+	.grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+.card {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	border: 0;
+	background: none;
+	padding: 0;
+	cursor: pointer;
+}
+
+.card:disabled {
+	cursor: default;
+}
+
+.photoWrap {
+	position: relative;
+	width: 100%;
+	aspect-ratio: 1 / 1;
+	border-radius: 2px;
+	overflow: hidden;
+	margin-bottom: 0.85rem;
+}
+
+.photo {
+	object-fit: cover;
+}
+
+.name {
+	font-weight: 600;
+}
+
+.role {
+	font-size: 0.85rem;
+	color: var(--color-ink-muted);
+}
+
+.hint {
+	margin-top: 2rem;
+	font-size: 0.85rem;
+	font-style: italic;
+	color: var(--color-ink-muted);
+}
+
+.buttons {
+	margin-top: 2rem;
+}
+
+.button {
+	display: inline-block;
+	padding: 0.85rem 1.75rem;
+	background: var(--color-accent);
+	color: #fdf8f2;
+	font-size: 0.85rem;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+	border-radius: 2px;
+	transition: background 0.15s ease;
+}
+
+.button:hover {
+	background: var(--color-accent-dark);
+}
+
+.bio {
+	max-width: 32rem;
+	text-align: center;
+}
+
+.bioPhotoWrap {
+	position: relative;
+	width: 150px;
+	aspect-ratio: 1 / 1;
+	border-radius: 50%;
+	overflow: hidden;
+	margin: 0 auto 1.25rem;
+}
+
+.bioName {
+	font-size: 1.4rem;
+	margin-bottom: 0.25rem;
+}
+
+.bioText {
+	margin-top: 1.25rem;
+	text-align: left;
+	color: var(--color-ink-muted);
+	line-height: 1.6;
+}
+
+.bioText :global(p) {
+	margin-bottom: 0.85rem;
+}

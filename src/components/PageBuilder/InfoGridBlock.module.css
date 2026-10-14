@@ -1,0 +1,54 @@
+.eyebrow {
+	font-size: 0.75rem;
+	font-weight: 600;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--color-accent);
+	margin-bottom: 0.75rem;
+}
+
+.heading {
+	font-size: clamp(1.6rem, 3vw, 2.2rem);
+	margin-bottom: 2rem;
+}
+
+.grid {
+	/* --cols (set inline from the block's `columns` field) pins a fixed
+	   column count; unset, this falls back to a responsive grid that
+	   fits as many ~220px columns as space allows. */
+	display: grid;
+	grid-template-columns: repeat(var(--cols, auto-fill), minmax(220px, 1fr));
+	gap: 1.5rem 2rem;
+	list-style: none;
+}
+
+.item {
+	padding-left: 1rem;
+	border-left: 2px solid var(--color-line);
+}
+
+.title {
+	font-weight: 600;
+	color: var(--color-ink);
+	margin-bottom: 0.2rem;
+}
+
+.meta {
+	font-size: 0.85rem;
+	color: var(--color-ink-muted);
+	margin-bottom: 0.4rem;
+}
+
+.detail {
+	font-size: 0.9rem;
+	color: var(--color-ink-muted);
+	line-height: 1.5;
+}
+
+/* A fixed --cols (e.g. 2) skips the auto-fill grid's natural collapse
+   to fewer columns on narrow screens — force back to one on mobile. */
+@media (max-width: 640px) {
+	.grid {
+		grid-template-columns: 1fr;
+	}
+}

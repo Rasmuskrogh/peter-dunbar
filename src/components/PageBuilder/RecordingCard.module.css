@@ -1,0 +1,79 @@
+.card {
+	position: relative;
+	display: block;
+	width: 100%;
+	text-align: left;
+	background: none;
+	border: none;
+	padding: 0;
+	font: inherit;
+	color: inherit;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.thumb {
+	position: relative;
+	display: block;
+	width: 100%;
+	aspect-ratio: 16 / 10;
+	object-fit: cover;
+	background: linear-gradient(160deg, var(--color-accent), var(--color-accent-dark));
+	border-radius: 2px;
+}
+
+.playButton {
+	position: absolute;
+	top: calc(50% - 1.6rem);
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 2.5rem;
+	height: 2.5rem;
+	border-radius: 50%;
+	background: rgba(0, 0, 0, 0.55);
+	color: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 0.8rem;
+}
+
+.recTitle {
+	margin-top: 0.75rem;
+	font-weight: 600;
+	font-size: 0.95rem;
+}
+
+.recComposer {
+	font-size: 0.8rem;
+	color: var(--color-ink-muted);
+}
+
+.content {
+	width: min(900px, 90vw);
+	background: var(--color-bg);
+	border-radius: 4px;
+	padding: 1rem;
+}
+
+.embedWrapper {
+	position: relative;
+	width: 100%;
+	aspect-ratio: 16 / 9;
+	overflow: hidden;
+	border-radius: 2px;
+}
+
+.embedWrapper iframe {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	border: none;
+}
+
+.modalCaption {
+	margin-top: 0.75rem;
+	font-size: 0.85rem;
+	color: var(--color-ink-muted);
+}

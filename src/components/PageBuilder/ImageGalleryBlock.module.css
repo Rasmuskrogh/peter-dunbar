@@ -1,0 +1,68 @@
+.section {
+	text-align: center;
+}
+
+.heading {
+	font-size: clamp(1.6rem, 3vw, 2.2rem);
+	margin-bottom: 2rem;
+}
+
+.grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 0.75rem;
+}
+
+@media (max-width: 900px) {
+	.grid {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+@media (max-width: 640px) {
+	.grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+.item {
+	position: relative;
+	aspect-ratio: 4 / 3;
+	border: 0;
+	padding: 0;
+	cursor: pointer;
+	border-radius: 2px;
+	overflow: hidden;
+}
+
+.thumb {
+	object-fit: cover;
+}
+
+/*
+ * Capped at a fixed target size (not 90vw/90vh) so a photo doesn't grow
+ * edge-to-edge on a large monitor, and holds that size as the viewport
+ * shrinks — only shrinking once the viewport itself can't fit it. See
+ * the ORIENTATION.md note on this pattern for the reasoning.
+ */
+.lightboxWrap {
+	position: relative;
+	width: min(1000px, 90vw, 70vh * var(--ar));
+	height: min(750px, 70vh, 90vw / var(--ar));
+}
+
+.lightboxImage {
+	object-fit: contain;
+}
+
+.caption {
+	margin-top: 1rem;
+	text-align: center;
+	font-size: 0.85rem;
+	color: var(--color-ink-muted);
+}
+
+.credit {
+	margin-top: 0.15rem;
+	opacity: 0.75;
+}
