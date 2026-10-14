@@ -4,7 +4,9 @@
 	min-height: calc(88vh - 64px);
 }
 
+/* Text on deep green, image on the right. */
 .content {
+	background: var(--color-h1);
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -61,7 +63,7 @@
 	font-weight: 500;
 	letter-spacing: 0.22em;
 	text-transform: uppercase;
-	color: var(--color-accent-text);
+	color: var(--color-accent);
 }
 
 .eyebrow::before {
@@ -75,19 +77,19 @@
 	font-size: clamp(2.6rem, 5vw, 3.9rem);
 	line-height: 1.12;
 	margin-bottom: 1.5rem;
+	color: var(--color-bg);
 }
 
 .heading em {
 	font-style: italic;
-	/* Darkest gold that still reads as gold; 3.3:1 on the background, enough for text this large. */
-	color: #a07842;
+	color: var(--color-accent);
 }
 
 .body {
 	margin-bottom: 2.25rem;
 	font-size: 0.95rem;
 	line-height: 1.8;
-	color: var(--color-ink-muted);
+	color: #c8d9c4;
 }
 
 .actions {
@@ -121,7 +123,7 @@
 	display: inline-flex;
 	align-items: center;
 	gap: 0.5rem;
-	color: var(--color-h2);
+	color: var(--color-line);
 	transition: color 0.2s ease;
 }
 
@@ -132,18 +134,18 @@
 }
 
 .secondary:hover {
-	color: var(--color-accent-text);
+	color: var(--color-accent);
 }
 
 .secondary:hover::after {
 	transform: translateX(3px);
 }
 
-/* Deep green panel behind the photo (and in its place until one is uploaded), with a gold edge. */
+/* Light panel behind the photo (and in its place until one is uploaded), with a gold edge. */
 .media {
 	position: relative;
 	overflow: hidden;
-	background: var(--color-h1);
+	background: var(--color-bg-alt);
 }
 
 .media::after {

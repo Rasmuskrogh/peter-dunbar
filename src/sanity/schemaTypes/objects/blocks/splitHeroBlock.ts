@@ -2,10 +2,10 @@ import { defineField, defineType } from "sanity";
 import { SplitHorizontalIcon } from "@sanity/icons/SplitHorizontal";
 
 /**
- * Two-column hero: text and buttons on the left, a full-height image on
- * the right (stacked on mobile). Typically the first block on the home
- * page. Unlike `heroBlock`, the text sits on the page background, not on
- * the photo.
+ * Two-column hero: text and buttons on a deep green panel to the left, a
+ * full-height image on the right (stacked on mobile). Typically the
+ * first block on the home page. Unlike `heroBlock`, the text never sits
+ * on the photo.
  */
 export default defineType({
 	name: "splitHeroBlock",
@@ -43,7 +43,7 @@ export default defineType({
 					validation: (Rule) => Rule.required().warning("The hero image needs alt text."),
 				}),
 			],
-			validation: (Rule) => Rule.required().warning("Without an image the right side shows a plain green panel."),
+			validation: (Rule) => Rule.required().warning("Without an image the right side shows an empty beige panel."),
 		}),
 	],
 	preview: {
