@@ -70,7 +70,7 @@ export type TextWithImageBlock = {
 	button: SanityLink | null;
 	facts: Fact[] | null;
 	showContactDetails: boolean | null;
-	image: Image & { alt?: string };
+	image: (Image & { alt?: string }) | null;
 	imageStyle: "circle" | "rectangle" | null;
 	imagePosition: "left" | "right" | null;
 };

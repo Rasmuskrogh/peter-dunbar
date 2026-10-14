@@ -84,13 +84,16 @@ export default async function TextWithImageBlock({ block }: { block: TextWithIma
 
 	const image = (
 		<div className={isCircle ? styles.imageCircleWrap : styles.imageRectWrap}>
-			<Image
-				src={urlFor(block.image).width(900).url()}
-				alt={block.image.alt ?? ""}
-				fill
-				sizes="(max-width: 700px) 100vw, 50vw"
-				className={styles.image}
-			/>
+			{/* Until a photo is uploaded the frame stays as an empty panel instead of breaking the page. */}
+			{block.image?.asset ? (
+				<Image
+					src={urlFor(block.image).width(900).url()}
+					alt={block.image.alt ?? ""}
+					fill
+					sizes="(max-width: 700px) 100vw, 50vw"
+					className={styles.image}
+				/>
+			) : null}
 		</div>
 	);
 

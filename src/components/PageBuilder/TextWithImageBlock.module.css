@@ -102,6 +102,7 @@
 	aspect-ratio: 4 / 3;
 	border-radius: 2px;
 	overflow: hidden;
+	background: var(--color-bg-alt);
 }
 
 .imageCircleWrap {
@@ -111,6 +112,7 @@
 	margin: 0 auto;
 	border-radius: 50%;
 	overflow: hidden;
+	background: var(--color-bg-alt);
 }
 
 .image {
