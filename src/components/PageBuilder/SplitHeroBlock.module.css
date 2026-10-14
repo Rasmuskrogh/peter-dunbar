@@ -1,0 +1,171 @@
+.hero {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	min-height: calc(88vh - 64px);
+}
+
+.content {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	/* Left edge lines up with the header's logo (same container width and gutter). */
+	padding: 5rem clamp(1.5rem, 5vw, 4rem) 5rem max(1.5rem, calc((100vw - var(--container-width)) / 2 + 1.5rem));
+}
+
+/* Fade the text column in, one line after another. */
+.content > * {
+	opacity: 0;
+	transform: translateY(14px);
+	animation: fadeUp 0.7s ease forwards;
+}
+
+.content > :nth-child(2) {
+	animation-delay: 0.15s;
+}
+
+.content > :nth-child(3) {
+	animation-delay: 0.3s;
+}
+
+.content > :nth-child(4) {
+	animation-delay: 0.45s;
+}
+
+@keyframes fadeUp {
+	to {
+		opacity: 1;
+		transform: none;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.content > * {
+		opacity: 1;
+		transform: none;
+		animation: none;
+	}
+}
+
+.eyebrow {
+	display: flex;
+	align-items: center;
+	gap: 0.65rem;
+	margin-bottom: 1.25rem;
+	font-size: 0.7rem;
+	font-weight: 500;
+	letter-spacing: 0.22em;
+	text-transform: uppercase;
+	color: var(--color-accent-text);
+}
+
+.eyebrow::before {
+	content: "";
+	width: 28px;
+	height: 1px;
+	background: var(--color-accent);
+}
+
+.heading {
+	font-size: clamp(2.6rem, 5vw, 3.9rem);
+	line-height: 1.12;
+	margin-bottom: 1.5rem;
+}
+
+.heading em {
+	font-style: italic;
+	/* Darkest gold that still reads as gold; 3.3:1 on the background, enough for text this large. */
+	color: #a07842;
+}
+
+.body {
+	max-width: 24rem;
+	margin-bottom: 2.25rem;
+	font-size: 0.95rem;
+	line-height: 1.8;
+	color: var(--color-ink-muted);
+}
+
+.actions {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 1rem 1.75rem;
+}
+
+.primary,
+.secondary {
+	font-size: 0.7rem;
+	font-weight: 500;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+}
+
+.primary {
+	padding: 0.9rem 1.75rem;
+	border-radius: 2px;
+	background: var(--color-accent);
+	color: var(--color-on-accent);
+	transition: background 0.2s ease;
+}
+
+.primary:hover {
+	background: var(--color-accent-dark);
+}
+
+.secondary {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+	color: var(--color-h2);
+	transition: color 0.2s ease;
+}
+
+.secondary::after {
+	content: "→";
+	font-size: 0.9rem;
+	transition: transform 0.2s ease;
+}
+
+.secondary:hover {
+	color: var(--color-accent-text);
+}
+
+.secondary:hover::after {
+	transform: translateX(3px);
+}
+
+/* Deep green panel behind the photo (and in its place until one is uploaded), with a gold edge. */
+.media {
+	position: relative;
+	overflow: hidden;
+	background: var(--color-h1);
+}
+
+.media::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	height: 4px;
+	background: var(--color-accent);
+}
+
+.image {
+	object-fit: cover;
+}
+
+@media (max-width: 800px) {
+	.hero {
+		grid-template-columns: 1fr;
+		min-height: 0;
+	}
+
+	.content {
+		padding: 3.5rem 1.5rem 3rem;
+	}
+
+	.media {
+		aspect-ratio: 4 / 3;
+	}
+}

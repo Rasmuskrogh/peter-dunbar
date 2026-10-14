@@ -30,6 +30,17 @@ export type HeroBlock = {
 	darkenOverlay: boolean | null;
 };
 
+export type SplitHeroBlock = {
+	_type: "splitHeroBlock";
+	_key: string;
+	eyebrow: string | null;
+	heading: string;
+	body: string | null;
+	primaryButton: SanityLink | null;
+	secondaryButton: SanityLink | null;
+	image: (Image & { alt?: string }) | null;
+};
+
 export type PullQuote = {
 	quote: string;
 	source: string | null;
@@ -199,6 +210,7 @@ export type RecordingsBlock = {
 
 export type PageBuilderBlock =
 	| HeroBlock
+	| SplitHeroBlock
 	| TextBlock
 	| TextWithImageBlock
 	| PersonGridBlock

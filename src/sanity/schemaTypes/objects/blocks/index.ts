@@ -1,4 +1,5 @@
 import heroBlock from "./heroBlock";
+import splitHeroBlock from "./splitHeroBlock";
 import textBlock from "./textBlock";
 import textWithImageBlock from "./textWithImageBlock";
 import personGridBlock from "./personGridBlock";
@@ -13,6 +14,7 @@ import recordingsBlock from "./recordingsBlock";
 /** Every block available in the pageBuilder. Add new ones here. */
 export const blocks = [
 	heroBlock,
+	splitHeroBlock,
 	textBlock,
 	textWithImageBlock,
 	personGridBlock,

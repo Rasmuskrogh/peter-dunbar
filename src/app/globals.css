@@ -6,17 +6,27 @@
 	 * consistent across projects (not the values) is the point: it means
 	 * block CSS never needs to change when a project reskins.
 	 */
-	--color-bg: #fafaf9;
-	--color-bg-alt: #f0efec;
-	--color-ink: #1c1a17;
-	--color-ink-muted: #5c574f;
-	--color-line: #e2ded5;
-	--color-accent: #8a5a44;
-	--color-accent-dark: #6b4433;
+	--color-bg: #eae8df;
+	--color-bg-alt: #f0ede4;
+	--color-ink: #0f1e15;
+	--color-ink-muted: #4a5a4f;
+	--color-line: #a8c5a0;
+	/* Form fields need a 3:1 edge against the background; the sage line is too faint for that. */
+	--color-field-line: #7a9a73;
+	--color-accent: #d4a96a;
+	--color-accent-dark: #b8894e;
+	/* The accent itself is too light for text on --color-bg (1.8:1) — this darker amber is 4.7:1. */
+	--color-accent-text: #80602d;
+	/* Text on an accent-filled button. */
+	--color-on-accent: #0f1e15;
 
-	--font-display: Georgia, "Times New Roman", serif;
-	--font-body:
-		-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+	--color-h1: #1c3a2a;
+	--color-h2: #2e5e40;
+	--color-h3: #3d6b50;
+
+	/* Set by next/font in app/layout.tsx. */
+	--font-display: var(--font-playfair), Georgia, serif;
+	--font-body: var(--font-dm-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
 
 	--container-width: 1120px;
 }
@@ -45,6 +55,7 @@ body {
 	color: var(--color-ink);
 	background: var(--color-bg);
 	font-family: var(--font-body);
+	line-height: 1.7;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
@@ -70,8 +81,21 @@ h2,
 h3,
 h4 {
 	font-family: var(--font-display);
-	font-weight: 500;
+	font-weight: 400;
 	line-height: 1.15;
+}
+
+h1 {
+	color: var(--color-h1);
+}
+
+h2 {
+	color: var(--color-h2);
+}
+
+h3,
+h4 {
+	color: var(--color-h3);
 }
 
 a {

@@ -1,5 +1,22 @@
 import type { Metadata } from "next";
+import { DM_Sans, Playfair_Display } from "next/font/google";
 import "./globals.css";
+
+/* Headings: Playfair Display. Body / UI: DM Sans. Wired to --font-display / --font-body in globals.css. */
+const playfair = Playfair_Display({
+	subsets: ["latin"],
+	weight: ["400", "700"],
+	style: ["normal", "italic"],
+	variable: "--font-playfair",
+	display: "swap",
+});
+
+const dmSans = DM_Sans({
+	subsets: ["latin"],
+	weight: ["300", "400", "500"],
+	variable: "--font-dm-sans",
+	display: "swap",
+});
 
 export const metadata: Metadata = {
 	title: "Sanity Base",
@@ -15,7 +32,7 @@ export const metadata: Metadata = {
  */
 export default function RootLayout({ children }: LayoutProps<"/">) {
 	return (
-		<html lang="en">
+		<html lang="en" className={`${playfair.variable} ${dmSans.variable}`}>
 			<body>{children}</body>
 		</html>
 	);

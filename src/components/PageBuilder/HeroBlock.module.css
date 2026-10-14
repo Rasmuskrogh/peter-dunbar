@@ -54,7 +54,6 @@
 .subheading {
 	margin-top: 1rem;
 	color: var(--color-accent);
-	filter: brightness(1.6);
 	font-size: 0.95rem;
 	letter-spacing: 0.14em;
 	text-transform: uppercase;

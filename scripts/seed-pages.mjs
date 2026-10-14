@@ -63,12 +63,13 @@ tx.createIfNotExists({
 	title: "Home",
 	pageBuilder: [
 		{
-			_type: "textBlock",
+			_type: "splitHeroBlock",
 			_key: key(),
 			eyebrow: "[Short tagline]",
-			heading: "[Peter's name]",
-			body: [paragraph("[An introduction — who Peter is and what the site is about.]")],
-			button: internal("See the gallery", galleryId),
+			heading: "[A headline with one *highlighted* word]",
+			body: "[An introduction — who Peter is and what the site is about.]",
+			primaryButton: internal("View gallery", galleryId),
+			secondaryButton: internal("Get in touch", contactId),
 		},
 		{
 			_type: "ctaBlock",

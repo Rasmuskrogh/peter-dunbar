@@ -13,6 +13,7 @@ const linkFragment = /* groq */ `{
   openInNewTab,
   "url": select(
     linkType == "external" => externalUrl,
+    linkType == "internal" && internalLink->_type == "homePage" => "home",
     linkType == "internal" => internalLink->slug.current
   )
 }`;
@@ -26,6 +27,16 @@ const pageBuilderFragment = /* groq */ `
       heading,
       subheading,
       darkenOverlay,
+    },
+    _type == "splitHeroBlock" => {
+      _type,
+      _key,
+      eyebrow,
+      heading,
+      body,
+      primaryButton ${linkFragment},
+      secondaryButton ${linkFragment},
+      image,
     },
     _type == "textBlock" => {
       _type,

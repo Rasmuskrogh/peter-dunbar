@@ -1,5 +1,6 @@
 import type { PageBuilderBlock } from "@/lib/types";
 import HeroBlock from "./HeroBlock";
+import SplitHeroBlock from "./SplitHeroBlock";
 import TextBlock from "./TextBlock";
 import TextWithImageBlock from "./TextWithImageBlock";
 import PersonGridBlock from "./PersonGridBlock";
@@ -27,6 +28,8 @@ export default function PageBuilder({ blocks }: { blocks: PageBuilderBlock[] | n
 				switch (block._type) {
 					case "heroBlock":
 						return <HeroBlock key={block._key} block={block} />;
+					case "splitHeroBlock":
+						return <SplitHeroBlock key={block._key} block={block} />;
 					case "textBlock":
 						return <TextBlock key={block._key} block={block} />;
 					case "textWithImageBlock":

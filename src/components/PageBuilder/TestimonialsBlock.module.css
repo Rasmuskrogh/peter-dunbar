@@ -3,7 +3,7 @@
 	font-weight: 600;
 	letter-spacing: 0.14em;
 	text-transform: uppercase;
-	color: var(--color-accent);
+	color: var(--color-accent-text);
 	margin-bottom: 0.75rem;
 	text-align: center;
 }
@@ -31,7 +31,7 @@
 	font-weight: 600;
 	letter-spacing: 0.12em;
 	text-transform: uppercase;
-	color: var(--color-accent);
+	color: var(--color-accent-text);
 	margin-bottom: 1.5rem;
 }
 
@@ -73,7 +73,7 @@
 	margin: 2.5rem auto 0;
 	padding: 0.85rem 1.75rem;
 	background: var(--color-accent);
-	color: #fdf8f2;
+	color: var(--color-on-accent);
 	font-size: 0.85rem;
 	letter-spacing: 0.05em;
 	text-transform: uppercase;
