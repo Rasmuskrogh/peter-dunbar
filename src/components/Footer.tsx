@@ -26,9 +26,17 @@ export default async function Footer() {
 					</div>
 				) : null}
 
-				<p className={styles.copyright}>
-					© {currentYear} {settings?.copyrightName || settings?.siteName || "Site Name"}
-				</p>
+				<div className={styles.end}>
+					<p className={styles.copyright}>
+						© {currentYear} {settings?.copyrightName || settings?.siteName || "Site Name"}
+					</p>
+					<p className={styles.credit}>
+						Made by{" "}
+						<a href="https://kroghdev.se" target="_blank" rel="noopener" className={styles.creditLink}>
+							Kroghdev
+						</a>
+					</p>
+				</div>
 			</div>
 		</footer>
 	);

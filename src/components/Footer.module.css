@@ -23,10 +23,33 @@
 	gap: 1rem;
 }
 
-.copyright {
+.end {
+	/* Always the right-hand column, even when there are no social links in the middle. */
+	grid-column: 3;
 	justify-self: end;
 	text-align: right;
+}
+
+.copyright {
 	font-size: 0.75rem;
+}
+
+.credit {
+	margin-top: 0.35rem;
+	font-size: 0.7rem;
+	letter-spacing: 0.04em;
+}
+
+.creditLink {
+	color: var(--color-h3);
+	text-decoration: underline;
+	text-decoration-color: var(--color-accent);
+	text-underline-offset: 3px;
+	transition: color 0.15s ease;
+}
+
+.creditLink:hover {
+	color: var(--color-accent-text);
 }
 
 @media (max-width: 640px) {
@@ -36,8 +59,12 @@
 		gap: 1rem;
 	}
 
+	.end {
+		grid-column: auto;
+	}
+
 	.socials,
-	.copyright {
+	.end {
 		justify-self: start;
 		text-align: left;
 	}
