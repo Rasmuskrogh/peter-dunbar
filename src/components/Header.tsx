@@ -3,8 +3,8 @@ import Image from "next/image";
 import { client } from "@/sanity/lib/client";
 import { SITE_SETTINGS_QUERY } from "@/lib/queries";
 import { urlFor } from "@/sanity/lib/image";
-import { hrefFor } from "@/lib/link";
 import type { SiteSettings } from "@/lib/types";
+import HeaderNav from "./HeaderNav";
 import styles from "./Header.module.css";
 
 export default async function Header() {
@@ -28,33 +28,7 @@ export default async function Header() {
 					)}
 				</Link>
 
-				<nav>
-					<ul className={styles.links}>
-						{navItems.map((item, index) => {
-							const hasDropdown = (item.children?.length ?? 0) > 0;
-
-							return (
-								<li key={index} className={hasDropdown ? styles.dropdownItem : undefined}>
-									<Link href={hrefFor(item.link)} className={styles.link}>
-										{item.link.text}
-									</Link>
-
-									{hasDropdown ? (
-										<ul className={styles.dropdownPanel}>
-											{item.children!.map((child, childIndex) => (
-												<li key={childIndex}>
-													<Link href={hrefFor(child)} className={styles.dropdownLink}>
-														{child.text}
-													</Link>
-												</li>
-											))}
-										</ul>
-									) : null}
-								</li>
-							);
-						})}
-					</ul>
-				</nav>
+				<HeaderNav items={navItems} />
 			</div>
 		</header>
 	);

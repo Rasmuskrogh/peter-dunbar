@@ -120,14 +120,106 @@
 	color: var(--color-accent-text);
 }
 
-@media (max-width: 720px) {
-	.bar {
-		flex-wrap: wrap;
+.link[aria-current="page"] {
+	color: var(--color-accent-text);
+}
+
+/* Hamburger — hidden on wide screens. */
+.menuButton {
+	display: none;
+	width: 44px;
+	height: 44px;
+	margin-right: -10px;
+	border: none;
+	background: none;
+	color: var(--color-h1);
+	cursor: pointer;
+	align-items: center;
+	justify-content: center;
+}
+
+/* Three lines: the middle one is the span, top and bottom are its pseudo-elements. */
+.burger,
+.burger::before,
+.burger::after {
+	display: block;
+	width: 22px;
+	height: 1.5px;
+	background: currentColor;
+	transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.burger {
+	position: relative;
+}
+
+.burger::before,
+.burger::after {
+	content: "";
+	position: absolute;
+	left: 0;
+}
+
+.burger::before {
+	top: -7px;
+}
+
+.burger::after {
+	top: 7px;
+}
+
+/* Open: the lines fold into an X. */
+.burgerOpen {
+	background: transparent;
+}
+
+.burgerOpen::before {
+	transform: translateY(7px) rotate(45deg);
+}
+
+.burgerOpen::after {
+	transform: translateY(-7px) rotate(-45deg);
+}
+
+@media (max-width: 960px) {
+	.menuButton {
+		display: inline-flex;
+	}
+
+	/* The menu drops down as a full-width panel under the header bar. */
+	.nav {
+		display: none;
+		position: absolute;
+		top: 100%;
+		left: 0;
+		right: 0;
+		background: var(--color-bg);
+		border-bottom: 1px solid var(--color-line);
+		box-shadow: 0 14px 28px rgba(15, 30, 21, 0.12);
+	}
+
+	.navOpen {
+		display: block;
 	}
 
 	.links {
-		flex-wrap: wrap;
-		gap: 1rem 1.5rem;
+		flex-direction: column;
+		align-items: stretch;
+		gap: 0;
+		width: 100%;
+		max-width: var(--container-width);
+		margin: 0 auto;
+		padding: 0.5rem 1.5rem 1rem;
+	}
+
+	.links > li + li {
+		border-top: 1px solid var(--color-line);
+	}
+
+	.link {
+		display: block;
+		padding: 0.95rem 0;
+		font-size: 0.8rem;
 	}
 
 	/* No hover on touch — the panel is just always expanded inline under
@@ -144,7 +236,7 @@
 		border: none;
 		border-radius: 0;
 		background: none;
-		padding: 0.25rem 0 0 0.5rem;
+		padding: 0 0 0.75rem 0.75rem;
 		opacity: 1;
 		visibility: visible;
 		pointer-events: auto;
