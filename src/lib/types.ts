@@ -19,6 +19,7 @@ export type SeoFields = {
 	metaTitle?: string;
 	metaDescription?: string;
 	metaImage?: Image;
+	noIndex?: boolean;
 } | null;
 
 export type HeroBlock = {
@@ -244,4 +245,8 @@ export type SiteSettings = {
 	website: string | null;
 	socialLinks: { platform: string; url: string }[] | null;
 	copyrightName: string | null;
+	language: "sv" | "en" | null;
+	siteDescription: string | null;
+	defaultShareImage: Image | null;
+	entityType: "Person" | "MusicGroup" | "LocalBusiness" | "Organization" | null;
 };

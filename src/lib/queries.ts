@@ -196,6 +196,16 @@ export const SITE_SETTINGS_QUERY = /* groq */ `
     managementName,
     website,
     socialLinks[] { platform, url },
-    copyrightName
+    copyrightName,
+    language,
+    siteDescription,
+    defaultShareImage,
+    entityType
   }
 `;
+
+/** Everything the sitemap lists: the home page and each page not hidden from search engines. */
+export const SITEMAP_QUERY = /* groq */ `{
+  "home": *[_type == "homePage"][0] { "slug": null, "updatedAt": _updatedAt },
+  "pages": *[_type == "page" && defined(slug.current) && seo.noIndex != true] { "slug": slug.current, "updatedAt": _updatedAt }
+}`;
