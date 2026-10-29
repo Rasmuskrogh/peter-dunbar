@@ -14,12 +14,23 @@ const fromEnv =
 export const siteUrl = fromEnv.replace(/\/$/, "");
 
 /**
- * Only the real production deployment may be indexed. Vercel preview
- * deployments and Netlify deploy previews / branch deploys get noindex
- * and a robots.txt that blocks everything, so a half-finished version
- * never ends up in Google. Local dev counts as indexable so the tags
- * can be checked; it isn't reachable by crawlers anyway.
+ * Only the real production deployment on the real domain may be indexed.
+ *
+ * - Vercel preview deployments and Netlify deploy previews / branch
+ *   deploys: never.
+ * - Production without NEXT_PUBLIC_SITE_URL (still on *.vercel.app or
+ *   *.netlify.app, e.g. while the old site is live on the domain): not
+ *   yet — set NEXT_PUBLIC_SITE_URL at launch and redeploy to switch
+ *   indexing on.
+ * - Local dev counts as indexable so the tags can be checked; it isn't
+ *   reachable by crawlers anyway.
+ *
+ * Not indexable means noindex on every page and a robots.txt that blocks
+ * everything, so no half-finished or duplicate copy ends up in Google.
  */
+const onHost = Boolean(process.env.VERCEL_ENV || process.env.CONTEXT);
+
 export const isIndexable =
 	(process.env.VERCEL_ENV ? process.env.VERCEL_ENV === "production" : true) &&
-	(process.env.CONTEXT ? process.env.CONTEXT === "production" : true);
+	(process.env.CONTEXT ? process.env.CONTEXT === "production" : true) &&
+	(!onHost || Boolean(process.env.NEXT_PUBLIC_SITE_URL));
